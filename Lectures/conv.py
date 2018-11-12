@@ -22,8 +22,13 @@ def main():
     for directory in lectures:
         notes = os.listdir(directory)
         for note in notes:
+            # skip image if it is already converted
+            if "_" in note:
+                continue
             filename = os.path.join(directory, note)
-            new_filename = os.path.join(directory, note.replace(".jpg", "_.jpg").replace(".jpeg", "_.jpeg")
+            # conversion rule : add _ before an extension
+            new_filename = os.path.join(directory,
+                                        note.replace(".jpg", "_.png").replace(".jpeg", "_.png"))
             print(new_filename)
             th = adaptive_gaussian_notes(filename, new_filename)
             
