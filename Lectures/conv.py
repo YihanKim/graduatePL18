@@ -28,7 +28,7 @@ def main():
             filename = os.path.join(directory, note)
             # conversion rule : add _ before an extension
             new_filename = os.path.join(directory,
-                                        note.replace(".jpg", "_.png").replace(".jpeg", "_.png"))
+                                        "_" + note.replace(".jpg", ".png").replace(".jpeg", ".png"))
             print(new_filename)
             th = adaptive_gaussian_notes(filename, new_filename)
             
